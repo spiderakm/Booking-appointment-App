@@ -29,22 +29,29 @@ function onSubmit(e) {
         const name = e.target.name.value;
         const email = e.target.email.value;
 
- 
+        const obj = {name:name,
+        email:email}
+
+
+
+        localStorage.setItem(obj.email,stringify(obj))
         
-        localStorage.setItem('Name',name);
-        localStorage.setItem('Email',email);
+        // localStorage.setItem('Name',name);
+        // localStorage.setItem('Email',email);
+        //get the value from local storage and save into form
+
+        const getobj = JSON.parse(localStorage.getItem(obj.email))
 
 
 
 
 
+        const li =  document.createElement('li')
+        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
+        userList.appendChild(li);
 
-        // const li =  document.createElement('li')
-        // li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
-        // userList.appendChild(li);
-
-        // nameInput.value = '';
-        // emailInput.value = '';
+        nameInput.value = '';
+        emailInput.value = '';
     }
 
 }
