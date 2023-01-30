@@ -29,19 +29,20 @@ function onSubmit(e) {
         const name = e.target.name.value;
         const email = e.target.email.value;
 
-        const obj = {name:name,
-        email:email}
+        const myobj = {
+            name:name,
+            email:email
+        }
 
 
 
-        localStorage.setItem(obj.email,stringify(obj))
+    
         
         // localStorage.setItem('Name',name);
         // localStorage.setItem('Email',email);
         //get the value from local storage and save into form
-
-        const getobj = JSON.parse(localStorage.getItem(obj.email))
-
+        localStorage.setItem(myobj.email,JSON.stringify(myobj));
+        const obj=JSON.parse(localStorage.getItem(myobj.email));
 
 
 
@@ -52,6 +53,7 @@ function onSubmit(e) {
 
         nameInput.value = '';
         emailInput.value = '';
+        
     }
 
 }
